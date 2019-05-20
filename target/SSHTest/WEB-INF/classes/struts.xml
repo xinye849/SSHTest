@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <constant name="struts.devMode" value="true"></constant>
+    <constant name="struts.enable.DynamicMethodInvocation" value="true" />
+    <constant name="struts.ognl.allowStaticMethodAccess" value="true"/>
+
+    <package name="p1" extends="struts-default">
+
+        <action name="findAllStudents" class="studentAction" method="findAllStudents">
+            <result name="success" >/studentList.jsp</result>
+        </action>
+
+        <action name="saveStudentUI" class="studentAction" method="saveStudentUI">
+            <result name="success">/saveStudent.jsp</result>
+        </action>
+
+        <action name="saveStudent" class="studentAction" method="saveStudent">
+            <result name="success" type="chain">findAllStudents</result>
+        </action>
+
+        <action name="delStudent" class="studentAction" method="delStudent">
+            <result name="success" type="chain">findAllStudents</result>
+        </action>
+
+        <action name="updateStudentUI" class="studentAction" method="updateStudentUI">
+            <result name="success">/updateStudent.jsp</result>
+        </action>
+
+        <action name="updateStudent" class="studentAction" method="updateStudent">
+            <result name="success" type="chain">findAllStudents</result>
+        </action>
+
+        <action name="countById" class="studentAction" method="countById">
+
+        </action>
+
+        <action name="maxCountById" class="studentAction" method="maxCountById">
+
+        </action>
+
+
+
+
+    </package>
+
+</struts>
