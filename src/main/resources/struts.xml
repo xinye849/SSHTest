@@ -43,6 +43,10 @@
 
         </action>
 
+        <action name="findTopSubjects" class="studentAction" method="findTopSubjects">
+
+        </action>
+
 
 
 

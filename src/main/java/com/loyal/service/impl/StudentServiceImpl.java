@@ -51,4 +51,10 @@ public class StudentServiceImpl implements StudentService {
 
         return studentDao.maxCountById();
     }
+
+    @Override
+    public List<Student> findTopSubjects() {
+
+        return studentDao.findTopSubjects();
+    }
 }

@@ -65,4 +65,19 @@ public class StudentDaoImpl extends HibernateDaoSupport implements StudentDao {
 
         return student.getScore();
     }
+
+    @Override
+    public List<Student> findTopSubjects() {
+        String sql = "SELECT * FROM s_student WHERE score IN (SELECT MAX(score) FROM s_student " +
+                "GROUP BY `subject`)";
+
+        return (List<Student>) getHibernateTemplate().execute(new HibernateCallback() {
+            @Override
+            public Object doInHibernate(Session session) throws HibernateException {
+               Query query = session.createSQLQuery(sql);
+                return query.list();
+            }
+        });
+
+    }
 }

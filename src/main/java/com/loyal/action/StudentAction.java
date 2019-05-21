@@ -14,7 +14,7 @@ import org.apache.struts2.ServletActionContext;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
-import java.io.Serializable;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.List;
 
 public class StudentAction extends ActionSupport implements ModelDriven {
@@ -72,5 +72,14 @@ public class StudentAction extends ActionSupport implements ModelDriven {
     public String maxCountById() throws IOException {
         ServletActionContext.getResponse().getWriter().print(studentService.maxCountById());
         return null;
+    }
+
+    public String findTopSubjects() throws IOException {
+        List<Student> top = studentService.findTopSubjects();
+        ObjectMapper mapper = new ObjectMapper();
+        String s = mapper.writeValueAsString(top);
+        ServletActionContext.getResponse().getWriter().print(s);
+        return null;
+
     }
 }

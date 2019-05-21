@@ -10,7 +10,7 @@
 <body>
 <h2>Hello World!</h2>
 
-<table border="1">
+<table border="1" id="tb">
     <tr>
         <td>姓名</td>
         <td>科目</td>
@@ -33,5 +33,6 @@
 
 <a href="${pageContext.request.contextPath}/countById">所有科目总分最高者</a><br>
 <a href="${pageContext.request.contextPath}/maxCountById">分数最高者</a><br>
+<a href="${pageContext.request.contextPath}/findTopSubjects">各科状元</a>
 </body>
 </html>

@@ -17,4 +17,5 @@ public interface StudentService {
 
     int maxCountById();
 
+    List<Student> findTopSubjects();
 }

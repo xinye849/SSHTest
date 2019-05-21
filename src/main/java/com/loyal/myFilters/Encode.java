@@ -24,6 +24,7 @@ public class Encode implements Filter {
 
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=utf-8");
 
         filterChain.doFilter(request, response);
     }
