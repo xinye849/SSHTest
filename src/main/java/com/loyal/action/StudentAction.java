@@ -82,4 +82,14 @@ public class StudentAction extends ActionSupport implements ModelDriven {
         return null;
 
     }
+
+    public String findAllByPro(){
+        List<Student> studentList = studentService.findAllByPro();
+        return null;
+    }
+
+    public String findProWithParam(){
+        List<Student> studentList = studentService.findProWithParam();
+        return null;
+    }
 }

@@ -23,9 +23,10 @@
             <td>${student.subject}</td>
             <td>${student.score}</td>
             <td><a href="${pageContext.request.contextPath}/saveStudentUI">增加</a> </td>
-            <td><a href="${pageContext.request.contextPath}/delStudent?id=${student.id}">删除</a>
-            <td><a href="${pageContext.request.contextPath}/updateStudentUI?id=${student.id}">更新</a>
-            </td>
+            <td><a href="${pageContext.request.contextPath}/delStudent?id=${student.id}">删除</a></td>
+            <td><a href="${pageContext.request.contextPath}/updateStudentUI?id=${student.id}">更新
+            </a></td>
+
         </tr>
     </c:forEach>
 
@@ -33,6 +34,9 @@
 
 <a href="${pageContext.request.contextPath}/countById">所有科目总分最高者</a><br>
 <a href="${pageContext.request.contextPath}/maxCountById">分数最高者</a><br>
-<a href="${pageContext.request.contextPath}/findTopSubjects">各科状元</a>
+<a href="${pageContext.request.contextPath}/findTopSubjects">各科状元</a><br>
+<a href="${pageContext.request.contextPath}/findAllByPro">findPro</a>
+<a href="${pageContext.request.contextPath}/findProWithParam">findPro</a>
+
 </body>
 </html>

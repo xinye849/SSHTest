@@ -57,4 +57,16 @@ public class StudentServiceImpl implements StudentService {
 
         return studentDao.findTopSubjects();
     }
+
+    @Override
+    public List<Student> findAllByPro() {
+
+        return studentDao.findAllByPro();
+    }
+
+    @Override
+    public List<Student> findProWithParam() {
+
+        return studentDao.findProWithParam();
+    }
 }

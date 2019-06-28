@@ -6,13 +6,13 @@
 
 <struts>
     <constant name="struts.devMode" value="true"></constant>
-    <constant name="struts.enable.DynamicMethodInvocation" value="true" />
+    <constant name="struts.enable.DynamicMethodInvocation" value="true"/>
     <constant name="struts.ognl.allowStaticMethodAccess" value="true"/>
 
     <package name="p1" extends="struts-default">
 
         <action name="findAllStudents" class="studentAction" method="findAllStudents">
-            <result name="success" >/studentList.jsp</result>
+            <result name="success">/studentList.jsp</result>
         </action>
 
         <action name="saveStudentUI" class="studentAction" method="saveStudentUI">
@@ -47,7 +47,8 @@
 
         </action>
 
-
+        <action name="findAllByPro" class="studentAction" method="findAllByPro"></action>
+        <action name="findProWithParam" class="studentAction" method="findProWithParam"></action>
 
 
     </package>

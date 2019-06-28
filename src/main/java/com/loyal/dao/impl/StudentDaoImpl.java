@@ -10,11 +10,14 @@ import com.loyal.dao.StudentDao;
 import com.loyal.entity.Student;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import org.hibernate.procedure.ProcedureCall;
+import org.hibernate.query.NativeQuery;
 import org.hibernate.query.Query;
 import org.springframework.orm.hibernate5.HibernateCallback;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 
 
+import javax.persistence.ParameterMode;
 import java.util.List;
 
 public class StudentDaoImpl extends HibernateDaoSupport implements StudentDao {
@@ -80,4 +83,35 @@ public class StudentDaoImpl extends HibernateDaoSupport implements StudentDao {
         });
 
     }
+
+    @Override
+    public List<Student> findAllByPro() {
+        getHibernateTemplate().execute(new HibernateCallback<Object>() {
+            @Override
+            public Object doInHibernate(Session session) throws HibernateException {
+                Query query = session.createSQLQuery("call pro1()");
+                return query.list();
+            }
+        });
+
+        return null;
+    }
+
+    @Override
+    public List<Student> findProWithParam() {
+        getHibernateTemplate().execute(new HibernateCallback<Object>() {
+            @Override
+            public Object doInHibernate(Session session) throws HibernateException {
+                ProcedureCall pc = session.createStoredProcedureCall("pro2");
+                pc.registerParameter("cnt",Integer.class, ParameterMode.OUT);
+                Object cnt = pc.getOutputs().getOutputParameterValue("cnt");
+
+
+                return null;
+            }
+        });
+        return null;
+    }
+
+
 }

@@ -18,4 +18,8 @@ public interface StudentDao {
     int maxCountById();
 
     List<Student> findTopSubjects();
+
+    List<Student> findAllByPro();
+
+    List<Student> findProWithParam();
 }
